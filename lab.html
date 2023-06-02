@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Photo Background Page</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url("Photo1.jpeg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            min-height: 100vh;
+        }
+        .column {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 176.4px;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.3);
+            color: #fff;
+            padding: 20px;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+            overflow-y: auto;
+        }
+        .content {
+            position: absolute; 
+            top: 80%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #fff;
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+        .content img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+        .column-buttons {
+            display: flex;
+            flex-direction: column;
+        }
+        .column-buttons a {
+            width: 120px;
+            height: 120px;
+            margin-bottom: 40px;
+            display: block;
+            border: none;
+            padding: 0;
+        }
+        .column-buttons a:first-child {
+            position: sticky;
+            top: 0;
+        }
+        .column-buttons a:nth-child(2) {
+            display: block;
+        }
+        .column-buttons a:nth-child(2).hide {
+            display: none;
+        }
+        .column-buttons a img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .left-corner-image {
+            position: sticky;
+            top: 0;
+            right: 0;
+            width: 160px;
+            height: 160px;
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+            z-index: 1;
+        }
+        .left-corner-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .right-corner-image {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 90px;
+            height: 90px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+            z-index: 1;
+            cursor: pointer;
+        }
+        .right-corner-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Media Queries */
+        @media only screen and (max-width: 768px) {
+            .column {
+                width: 100%;
+                position: static;
+                height: auto;
+                background-color: transparent;
+                color: #000;
+                padding: 0;
+                overflow-y: visible;
+            }
+            .content {
+                margin-left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="left-corner-image">
+        <img src="lab.avif" alt="Photo Placeholder 13">
+    </div>
+    <div class="right-corner-image" onclick="refreshPage()">
+        <img src="318255.png" alt="Photo Placeholder 14">
+    </div>
+    <div class="column">
+        <!-- Add content for the left column here -->
+        <div class="column-buttons">
+            <a href="https://example.com">
+                <img src="placeholder1.jpg" alt="Photo Placeholder 1">
+            </a>
+            <a href="https://example.com">
+                <img src="erlen.png" alt="Photo Placeholder 2">
+            </a>
+            <a href="https://example.com">
+                <img src="placeholder3.jpg" alt="Photo Placeholder 3">
+            </a>
+            <a href="https://example.com">
+                <img src="placeholder4.jpg" alt="Photo Placeholder 4">
+            </a>
+            <a href="https://example.com">
+                <img src="placeholder5.jpg" alt="Photo Placeholder 5">
+            </a>
+            <a href="https://example.com">
+                <img src="placeholder6.jpg" alt="Photo Placeholder 6">
+            </a>
+            <a href="https://example.com">
+                <img src="placeholder7.jpg" alt="Photo Placeholder 7">
+            </a>
+            <a href="https://example.com">
+                <img src="placeholder8.jpg" alt="Photo Placeholder 8">
+            </a>
+            <a href="https://example.com">
+                <img src="placeholder9.jpg" alt="Photo Placeholder 9">
+            </a>
+            <a href="https://example.com">
+                <img src="placeholder10.jpg" alt="Photo Placeholder 10">
+            </a>
+            <a href="https://example.com">
+                <img src="placeholder11.jpg" alt="Photo Placeholder 11">
+            </a>
+            <a href="https://example.com">
+                <img src="placeholder12.jpg" alt="Photo Placeholder 12">
+            </a>
+        </div>
+    </div>
+    <div class="content">
+        <img src="beher.png" alt="Beher" width="353" height="350">
+    </div>
+    <script>
+        function refreshPage() {
+            location.reload();
+        }
+
+        window.addEventListener('scroll', function() {
+            var secondButton = document.querySelector('.column-buttons a:nth-child(2)');
+            var junctionPoint = document.querySelector('header').offsetTop;
+
+            if (window.pageYOffset >= junctionPoint) {
+                secondButton.classList.add('hide');
+            } else {
+                secondButton.classList.remove('hide');
+            }
+        });
+    </script>
+</body>
+</html>
